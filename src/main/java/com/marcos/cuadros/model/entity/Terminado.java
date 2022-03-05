@@ -1,0 +1,96 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.marcos.cuadros.model.entity;
+
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author david
+ */
+@Entity
+@Table(name = "terminado")
+public class Terminado implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "Id_terminado")
+    private Integer idterminado;
+    @Column(name = "centimetros")
+    private Integer centimetros;
+    @Basic(optional = false)
+    @Column(name = "precio")
+    private double precio;
+
+    public Terminado() {
+    }
+
+    public Terminado(Integer idterminado) {
+        this.idterminado = idterminado;
+    }
+
+    public Terminado(Integer idterminado, double precio) {
+        this.idterminado = idterminado;
+        this.precio = precio;
+    }
+
+    public Integer getIdterminado() {
+        return idterminado;
+    }
+
+    public void setIdterminado(Integer idterminado) {
+        this.idterminado = idterminado;
+    }
+
+    public Integer getCentimetros() {
+        return centimetros;
+    }
+
+    public void setCentimetros(Integer centimetros) {
+        this.centimetros = centimetros;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idterminado != null ? idterminado.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Terminado)) {
+            return false;
+        }
+        Terminado other = (Terminado) object;
+        if ((this.idterminado == null && other.idterminado != null) || (this.idterminado != null && !this.idterminado.equals(other.idterminado))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.mycompany.mavenproject1.Terminado[ idterminado=" + idterminado + " ]";
+    }
+    
+}

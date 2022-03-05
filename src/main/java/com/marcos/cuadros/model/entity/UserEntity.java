@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+
 @Entity(name = "usuarios")
 @Table(indexes = {@Index(columnList = "userId",name = "index_userid",unique = true),
                   @Index(columnList = "email",name = "index_email",unique = true)})

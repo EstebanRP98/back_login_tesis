@@ -50,8 +50,7 @@ public class UserService implements UserServiceInterface {
             throw new EmailExistsException("El correo electronico ya existe");
         }
 
-        UserEntity userEntity = new UserEntity();
-        BeanUtils.copyProperties(user,userEntity);
+        UserEntity userEntity = mapper.map(user,UserEntity.class);
         userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         UUID userId = UUID.randomUUID();
         userEntity.setUserId(userId.toString());
