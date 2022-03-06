@@ -32,7 +32,10 @@ public class MolduraService implements MolduraServiceInterface{
 
     @Override
     public Molduras updateMolduras(Molduras moldura) {
-        Molduras molduraAntigua = moldurasRepository.findMolduraById(moldura.getIdmoldura());
+        Molduras molduraAntigua = new Molduras();
+        if(moldura.getIdmoldura()!=null){
+            molduraAntigua = moldurasRepository.findMolduraById(moldura.getIdmoldura());
+        }
         molduraAntigua.setIdmoldura(moldura.getIdmoldura());
         molduraAntigua.setNombre(moldura.getNombre());
         molduraAntigua.setPrecio(moldura.getPrecio());

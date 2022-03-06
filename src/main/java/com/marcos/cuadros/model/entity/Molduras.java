@@ -5,13 +5,7 @@
 package com.marcos.cuadros.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -25,6 +19,8 @@ public class Molduras implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "Id_moldura")
+    @SequenceGenerator(name = "SID_MOLDURAS", sequenceName = "SID_MOLDURAS", initialValue = 356, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SID_MOLDURAS")
     private Integer idmoldura;
     @Column(name = "nombre")
     private String nombre;
