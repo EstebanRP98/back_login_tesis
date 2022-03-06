@@ -16,7 +16,7 @@ public interface MoldurasRepository extends CrudRepository<Molduras, Integer> {
 
     @Query(value = "select m " +
             "from Molduras m " +
-            "order by m.idmoldura asc")
+            "order by m.idmoldura desc")
     List<Molduras> findAllMolduras();
 
     @Query(value = "select m " +
@@ -26,7 +26,7 @@ public interface MoldurasRepository extends CrudRepository<Molduras, Integer> {
 
     @Query(value = "select m " +
             "from Molduras m " +
-            "order by m.idmoldura asc")
+            "order by m.idmoldura desc")
     Page<Molduras> findMoldurasPage(Pageable pageable);
 
     @Query(value = "select c " +
