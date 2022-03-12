@@ -38,10 +38,29 @@ public class CalculoService implements CalculoServiceInterface{
 
     @Override
     public Double calcular(CalculoMolduraDto calculoMolduraDto) {
-        try {
+
+            if(calculoMolduraDto.getIdmolduraOne()==null){
+                throw new RuntimeException("Error datos nulos");
+            }
             Double dimension = (calculoMolduraDto.getMedida1() * 2) + (calculoMolduraDto.getMedida2() * 2);
             Integer valor = new BigDecimal(Math.ceil(dimension)).intValue();
             Double precio = 0.0;
+
+            Molduras moldurasOne = moldurasRepository.findMolduraById(calculoMolduraDto.getIdmolduraOne());
+            if (moldurasOne != null) {
+                Double metros=dimension/100;
+                precio = precio + (moldurasOne.getPrecio()*metros);
+            }
+            Molduras moldurasTwo = moldurasRepository.findMolduraById(calculoMolduraDto.getIdmolduraTwo());
+            if (moldurasTwo != null) {
+                Double metros=dimension/100;
+                precio = precio + (moldurasTwo.getPrecio()*metros);
+            }
+            Molduras moldurasThree = moldurasRepository.findMolduraById(calculoMolduraDto.getIdmolduraThree());
+            if (moldurasThree != null) {
+                Double metros=dimension/100;
+                precio = precio + (moldurasThree.getPrecio()*metros);
+            }
 
             Corte corteInfo = corteRepository.findCorteByCm(valor);
             Terminado terminadoInfo = terminadoRepository.findTerminadoByCm(valor);
@@ -68,14 +87,11 @@ public class CalculoService implements CalculoServiceInterface{
                 precio = precio + (vidrioSrInfo.getPrecio() * calculoMolduraDto.getCantidadVidrioSr());
             }
 
-            Molduras molduras = moldurasRepository.findMolduraById(calculoMolduraDto.getIdmoldura());
-            if (molduras != null) {
-                precio = precio + molduras.getPrecio();
-            }
 
-            return precio;
-        }catch (Exception e){
-            return null;
-        }
+
+            //calculo del 24%
+            precio = precio +(precio *0.24);
+
+            return Math.ceil(precio);
     }
 }

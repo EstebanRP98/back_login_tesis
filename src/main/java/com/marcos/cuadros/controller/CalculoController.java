@@ -15,7 +15,7 @@ public class CalculoController {
     @Autowired
     CalculoServiceInterface calculoServiceInterface;
 
-    @RequestMapping(value = "/calcular", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/calcular", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<Double> calcular(@RequestBody CalculoMolduraDto calculoMolduraDto) {
         return new ResponseEntity<Double>(calculoServiceInterface.calcular(calculoMolduraDto), HttpStatus.OK);
     }

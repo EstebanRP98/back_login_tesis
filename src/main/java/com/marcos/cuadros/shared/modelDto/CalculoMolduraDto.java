@@ -6,7 +6,9 @@ public class CalculoMolduraDto {
 
     private Double medida1;
     private Double medida2;
-    private Integer idmoldura;
+    private Integer idmolduraOne;
+    private Integer idmolduraTwo;
+    private Integer idmolduraThree;
     private Boolean aglomerado;
     private Integer cantidadAglomerado;
     private Boolean paspartu;
@@ -17,7 +19,6 @@ public class CalculoMolduraDto {
     private Integer cantidadVidrioSr;
     private Boolean vidrioN;
     private Integer cantidadVidrioN;
-
 
     public Double getMedida1() {
         return medida1;
@@ -35,12 +36,28 @@ public class CalculoMolduraDto {
         this.medida2 = medida2;
     }
 
-    public Integer getIdmoldura() {
-        return idmoldura;
+    public Integer getIdmolduraOne() {
+        return idmolduraOne;
     }
 
-    public void setIdmoldura(Integer idmoldura) {
-        this.idmoldura = idmoldura;
+    public void setIdmolduraOne(Integer idmolduraOne) {
+        this.idmolduraOne = idmolduraOne;
+    }
+
+    public Integer getIdmolduraTwo() {
+        return idmolduraTwo;
+    }
+
+    public void setIdmolduraTwo(Integer idmolduraTwo) {
+        this.idmolduraTwo = idmolduraTwo;
+    }
+
+    public Integer getIdmolduraThree() {
+        return idmolduraThree;
+    }
+
+    public void setIdmolduraThree(Integer idmolduraThree) {
+        this.idmolduraThree = idmolduraThree;
     }
 
     public Boolean getAglomerado() {
