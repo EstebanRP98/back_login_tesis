@@ -39,9 +39,6 @@ public class CalculoService implements CalculoServiceInterface{
     @Override
     public Double calcular(CalculoMolduraDto calculoMolduraDto) {
 
-            if(calculoMolduraDto.getIdmolduraOne()==null){
-                throw new RuntimeException("Error datos nulos");
-            }
             Double dimension = (calculoMolduraDto.getMedida1() * 2) + (calculoMolduraDto.getMedida2() * 2);
             Integer valor = new BigDecimal(Math.ceil(dimension)).intValue();
             Double precio = 0.0;
