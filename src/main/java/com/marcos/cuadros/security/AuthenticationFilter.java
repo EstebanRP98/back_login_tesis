@@ -2,12 +2,15 @@ package com.marcos.cuadros.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marcos.cuadros.SpringApplicationContext;
+import com.marcos.cuadros.model.entity.UserEntity;
 import com.marcos.cuadros.model.request.UserLoginRequestModel;
+import com.marcos.cuadros.repository.UserRepository;
 import com.marcos.cuadros.service.UserServiceInterface;
 import com.marcos.cuadros.shared.modelDto.UserDto;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -26,6 +29,9 @@ import java.util.Date;
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
+
+    @Autowired
+    public UserRepository userRepository;
 
     public AuthenticationFilter(AuthenticationManager authenticationManager){
         this.authenticationManager = authenticationManager;

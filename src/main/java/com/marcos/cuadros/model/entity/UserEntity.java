@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -33,6 +34,13 @@ public class UserEntity implements Serializable {
 
     @Column(nullable = false)
     private String encryptedPassword;
+
+    @Column(name = "limit_date")
+    @Temporal(TemporalType.DATE)
+    private Date limitDate;
+    @Column(name = "limit_danger_date")
+    @Temporal(TemporalType.DATE)
+    private Date limitDangerDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<PostEntity> posts = new ArrayList<>();
@@ -91,5 +99,21 @@ public class UserEntity implements Serializable {
 
     public void setPosts(List<PostEntity> posts) {
         this.posts = posts;
+    }
+
+    public Date getLimitDate() {
+        return limitDate;
+    }
+
+    public void setLimitDate(Date limitDate) {
+        this.limitDate = limitDate;
+    }
+
+    public Date getLimitDangerDate() {
+        return limitDangerDate;
+    }
+
+    public void setLimitDangerDate(Date limitDangerDate) {
+        this.limitDangerDate = limitDangerDate;
     }
 }
