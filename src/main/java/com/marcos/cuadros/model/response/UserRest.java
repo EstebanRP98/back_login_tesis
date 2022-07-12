@@ -2,6 +2,7 @@ package com.marcos.cuadros.model.response;
 
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -11,6 +12,7 @@ public class UserRest {
     private String firstName;
     private String lastName;
     private String email;
+    private Date limitDate;
     private List<PostRest> posts;
 
 
@@ -20,6 +22,14 @@ public class UserRest {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public Date getLimitDate() {
+        return limitDate;
+    }
+
+    public void setLimitDate(Date limitDate) {
+        this.limitDate = limitDate;
     }
 
     public String getFirstName() {

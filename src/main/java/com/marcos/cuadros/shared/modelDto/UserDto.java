@@ -3,6 +3,7 @@ package com.marcos.cuadros.shared.modelDto;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 public class UserDto implements Serializable {
@@ -16,6 +17,7 @@ public class UserDto implements Serializable {
     private String email;
     private String password;
     private String encryptedPassword;
+    private Date limitDate;
     private List<PostDto> posts;
 
     public Long getId() {
@@ -32,6 +34,14 @@ public class UserDto implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public Date getLimitDate() {
+        return limitDate;
+    }
+
+    public void setLimitDate(Date limitDate) {
+        this.limitDate = limitDate;
     }
 
     public String getFirstName() {

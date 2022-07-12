@@ -25,6 +25,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/users").permitAll()
+                .antMatchers(HttpMethod.GET, "/users").permitAll()
                 .antMatchers(HttpMethod.GET,"/posts/last").permitAll()
                 .antMatchers(HttpMethod.GET,"/manage/*").permitAll()
                 .antMatchers(HttpMethod.GET,"/posts/{id}").permitAll()

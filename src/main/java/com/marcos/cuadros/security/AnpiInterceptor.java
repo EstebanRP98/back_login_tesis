@@ -43,10 +43,15 @@ public class AnpiInterceptor implements HandlerInterceptor {
                     .getPrincipal().toString();
 
             UserEntity user = userRepository.findByEmail(email);
-            Date limitDate = user.getLimitDate();
-            if(limitDate.before(new Date())){
-                throw new RuntimeException("Error: Falta de Pago");
+            if(email.equals("anonymousUser")) {
+                return true;
+            }else {
+                Date limitDate = user.getLimitDate();
+                if (limitDate.before(new Date())) {
+                    throw new RuntimeException("Error: Falta de Pago");
+                }
             }
+
 
             return true;
         } catch (Exception e) {
