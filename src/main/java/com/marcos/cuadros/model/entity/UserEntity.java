@@ -42,8 +42,8 @@ public class UserEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date limitDangerDate;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<PostEntity> posts = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    private List<PostEntity> posts = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -93,13 +93,13 @@ public class UserEntity implements Serializable {
         this.encryptedPassword = encryptedPassword;
     }
 
-    public List<PostEntity> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<PostEntity> posts) {
-        this.posts = posts;
-    }
+//    public List<PostEntity> getPosts() {
+//        return posts;
+//    }
+//
+//    public void setPosts(List<PostEntity> posts) {
+//        this.posts = posts;
+//    }
 
     public Date getLimitDate() {
         return limitDate;

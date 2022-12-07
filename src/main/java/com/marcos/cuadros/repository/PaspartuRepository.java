@@ -18,7 +18,7 @@ public interface PaspartuRepository extends JpaRepository<Paspartu, Integer> {
 
     @Query(value = "select * " +
             "from ( " +
-            "select a.Id_paspartu, a.centimetros, a.precio, ABS(:dimension - a.centimetros) as number " +
+            "select a.id_paspartu, a.centimetros, a.precio, ABS(:dimension - a.centimetros) as number " +
             "from paspartu a " +
             "order by number limit 2) ag " +
             "order by ag.centimetros desc limit 1", nativeQuery = true)

@@ -13,6 +13,4 @@ public interface ClienteServiceInterface extends UserDetailsService {
     public UserDto getUser(String email);
     public UserRest getUserRest();
 
-    public List<PostDto> getUserPosts(String email);
-
 }

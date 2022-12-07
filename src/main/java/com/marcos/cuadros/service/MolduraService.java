@@ -1,7 +1,6 @@
 package com.marcos.cuadros.service;
 
 import com.marcos.cuadros.model.entity.Molduras;
-import com.marcos.cuadros.model.entity.PostEntity;
 import com.marcos.cuadros.repository.MoldurasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service

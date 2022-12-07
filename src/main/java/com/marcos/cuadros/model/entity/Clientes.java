@@ -24,7 +24,7 @@ public class Clientes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Id_cliente")
+    @Column(name = "id_cliente")
     private Integer idcliente;
     @Column(name = "nombre")
     private String nombre;

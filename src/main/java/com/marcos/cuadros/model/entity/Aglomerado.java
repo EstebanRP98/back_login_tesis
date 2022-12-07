@@ -24,7 +24,7 @@ public class Aglomerado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Id_aglomerado")
+    @Column(name = "id_aglomerado")
     private Integer idaglomerado;
     @Column(name = "centimetros")
     private Integer centimetros;

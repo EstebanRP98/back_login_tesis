@@ -24,7 +24,7 @@ public class Terminado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Id_terminado")
+    @Column(name = "id_terminado")
     private Integer idterminado;
     @Column(name = "centimetros")
     private Integer centimetros;

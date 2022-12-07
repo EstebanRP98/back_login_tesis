@@ -17,7 +17,7 @@ public interface AglomeradoRepository extends JpaRepository<Aglomerado, Integer>
 
     @Query(value = "select * " +
             "from ( " +
-            "select a.Id_aglomerado, a.centimetros, a.precio, ABS(:dimension - a.centimetros) as number " +
+            "select a.id_aglomerado, a.centimetros, a.precio, ABS(:dimension - a.centimetros) as number " +
             "from aglomerado a " +
             "order by number limit 2) ag " +
             "order by ag.centimetros desc limit 1", nativeQuery = true)

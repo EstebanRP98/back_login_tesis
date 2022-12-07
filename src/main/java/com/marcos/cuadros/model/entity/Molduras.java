@@ -18,7 +18,7 @@ public class Molduras implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Id_moldura")
+    @Column(name = "id_moldura")
     @SequenceGenerator(name = "SID_MOLDURAS", sequenceName = "SID_MOLDURAS", initialValue = 356, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SID_MOLDURAS")
     private Integer idmoldura;

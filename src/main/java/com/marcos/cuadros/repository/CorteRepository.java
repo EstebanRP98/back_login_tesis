@@ -18,7 +18,7 @@ public interface CorteRepository extends JpaRepository<Corte, Integer> {
 
     @Query(value = "select * " +
             "from ( " +
-            "select a.Id_corte, a.centimetros, a.precio, ABS(:dimension - a.centimetros) as number " +
+            "select a.id_corte, a.centimetros, a.precio, ABS(:dimension - a.centimetros) as number " +
             "from corte a " +
             "order by number limit 2) ag " +
             "order by ag.centimetros desc limit 1", nativeQuery = true)

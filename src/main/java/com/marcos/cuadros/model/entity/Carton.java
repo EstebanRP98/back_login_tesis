@@ -24,7 +24,7 @@ public class Carton implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Id_carton")
+    @Column(name = "id_carton")
     private Integer idcarton;
     @Column(name = "centimetros")
     private Integer centimetros;

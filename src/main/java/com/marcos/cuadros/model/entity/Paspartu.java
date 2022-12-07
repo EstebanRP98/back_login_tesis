@@ -24,7 +24,7 @@ public class Paspartu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Id_paspartu")
+    @Column(name = "id_paspartu")
     private Integer idpaspartu;
     @Column(name = "centimetros")
     private Integer centimetros;

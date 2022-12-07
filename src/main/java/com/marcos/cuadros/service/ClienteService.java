@@ -1,11 +1,9 @@
 package com.marcos.cuadros.service;
 
 import com.marcos.cuadros.exception.EmailExistsException;
-import com.marcos.cuadros.model.entity.PostEntity;
 import com.marcos.cuadros.model.entity.UserEntity;
 import com.marcos.cuadros.model.response.UserRest;
 import com.marcos.cuadros.repository.ClienteRepository;
-import com.marcos.cuadros.repository.PostRepository;
 import com.marcos.cuadros.repository.UserRepository;
 import com.marcos.cuadros.shared.modelDto.PostDto;
 import com.marcos.cuadros.shared.modelDto.UserDto;
@@ -33,9 +31,6 @@ public class ClienteService implements ClienteServiceInterface {
 
     @Autowired
     UserRepository userRepository;
-
-    @Autowired
-    PostRepository postRepository;
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -90,14 +85,5 @@ public class ClienteService implements ClienteServiceInterface {
         }
 
         return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), new ArrayList<>());
-    }
-
-
-    @Override
-    public List<PostDto> getUserPosts(String email) {
-        UserEntity userEntity = userRepository.findByEmail(email);
-        List<PostEntity> posts = postRepository.getByUserIdOrderByCreatedAtDesc(userEntity.getId());
-        List<PostDto> postsDto = mapper.map(posts, new TypeToken<List<PostDto>>(){}.getType());
-        return  postsDto;
     }
 }

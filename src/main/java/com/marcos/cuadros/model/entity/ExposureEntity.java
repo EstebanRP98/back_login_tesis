@@ -17,8 +17,8 @@ public class ExposureEntity implements Serializable {
     @Column(nullable = false, length = 50)
     private String type;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "exposure")
-    private List<PostEntity> posts = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "exposure")
+//    private List<PostEntity> posts = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -36,11 +36,11 @@ public class ExposureEntity implements Serializable {
         this.type = type;
     }
 
-    public List<PostEntity> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<PostEntity> posts) {
-        this.posts = posts;
-    }
+//    public List<PostEntity> getPosts() {
+//        return posts;
+//    }
+//
+//    public void setPosts(List<PostEntity> posts) {
+//        this.posts = posts;
+//    }
 }

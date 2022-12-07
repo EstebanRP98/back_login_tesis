@@ -24,7 +24,7 @@ public class Corte implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Id_corte")
+    @Column(name = "id_corte")
     private Integer idcorte;
     @Column(name = "centimetros")
     private Integer centimetros;

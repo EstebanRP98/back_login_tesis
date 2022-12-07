@@ -51,21 +51,21 @@ public class UsuariosController {
         return userToReturn;
     }
 
-    @GetMapping(path = "posts")
-    public List<PostRest> getPost(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getPrincipal().toString();
-        List<PostDto> postDtos = userService.getUserPosts(email);
-        List<PostRest> postRests = mapper.map(postDtos, new TypeToken<List<PostRest>>(){}.getType());
-        for(PostRest postRest:postRests){
-            if(postRest.getExpiresAt().compareTo(new Date(System.currentTimeMillis()))<0){
-                postRest.setExpired(true);
-            }
-        }
-
-
-        return postRests;
-    }
+//    @GetMapping(path = "posts")
+//    public List<PostRest> getPost(){
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String email = authentication.getPrincipal().toString();
+//        List<PostDto> postDtos = userService.getUserPosts(email);
+//        List<PostRest> postRests = mapper.map(postDtos, new TypeToken<List<PostRest>>(){}.getType());
+//        for(PostRest postRest:postRests){
+//            if(postRest.getExpiresAt().compareTo(new Date(System.currentTimeMillis()))<0){
+//                postRest.setExpired(true);
+//            }
+//        }
+//
+//
+//        return postRests;
+//    }
 
 
 }

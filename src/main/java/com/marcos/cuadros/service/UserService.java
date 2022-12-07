@@ -1,19 +1,15 @@
 package com.marcos.cuadros.service;
 
 import com.marcos.cuadros.exception.EmailExistsException;
-import com.marcos.cuadros.model.entity.PostEntity;
 import com.marcos.cuadros.model.entity.UserEntity;
 import com.marcos.cuadros.model.response.UserRest;
-import com.marcos.cuadros.repository.PostRepository;
 import com.marcos.cuadros.repository.UserRepository;
 import com.marcos.cuadros.shared.modelDto.PostDto;
 import com.marcos.cuadros.shared.modelDto.UserDto;
-import net.bytebuddy.description.method.MethodDescription;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -22,7 +18,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -33,8 +28,8 @@ public class UserService implements UserServiceInterface {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    PostRepository postRepository;
+//    @Autowired
+//    PostRepository postRepository;
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -92,11 +87,11 @@ public class UserService implements UserServiceInterface {
     }
 
 
-    @Override
-    public List<PostDto> getUserPosts(String email) {
-        UserEntity userEntity = userRepository.findByEmail(email);
-        List<PostEntity> posts = postRepository.getByUserIdOrderByCreatedAtDesc(userEntity.getId());
-        List<PostDto> postsDto = mapper.map(posts, new TypeToken<List<PostDto>>(){}.getType());
-        return  postsDto;
-    }
+//    @Override
+//    public List<PostDto> getUserPosts(String email) {
+//        UserEntity userEntity = userRepository.findByEmail(email);
+//        List<PostEntity> posts = postRepository.getByUserIdOrderByCreatedAtDesc(userEntity.getId());
+//        List<PostDto> postsDto = mapper.map(posts, new TypeToken<List<PostDto>>(){}.getType());
+//        return  postsDto;
+//    }
 }
